@@ -10,9 +10,12 @@ pipeline {
             echo('welcome')
         }
     }
-        stage('Build Docker Image'){
+        stage('Build Docker Image For front end'){
             steps{
-                sh "docker build . -t tcs-llyods/nodeapp:${DOCKER_TAG}"
+                dir('/Frontend/my-app'){
+                sh "docker build . -t tcs-llyods/frontend:${DOCKER_TAG}"
+                sh "docker run --name tcs-llyods/frontend:${DOCKER_TAG} -p 8081:8081 -d s-llyods/frontend:${DOCKER_TAG} "
+                }
             }
         }
     }
