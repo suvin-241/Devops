@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: tcs-llyods-frontend-ui1 
-      image: suvin241ana/tcs-llyods-frontend-ui1 :latest
+      image: suvin241/tcs-llyods-frontend-ui1 :latest
       ports:
         - containerPort: 8081
