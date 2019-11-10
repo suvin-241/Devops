@@ -8,6 +8,9 @@ RUN npm --version
 RUN pwd
 RUN ls
 
+RUN mkdir /app;
+WORKDIR /app
+
 RUN cd Frontend
 RUN npm install
 COPY build/. /
