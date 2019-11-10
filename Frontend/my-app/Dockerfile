@@ -15,7 +15,7 @@ RUN ls
 
 RUN npm install
 RUN npm run-script build
-COPY build/. /
+#COPY build/. /
 RUN npm install -g serve@5.2.4
 
 CMD serve -s -p8081
