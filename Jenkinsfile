@@ -11,12 +11,12 @@ pipeline {
         stage('Build Docker Image For front end'){
             steps{
                 dir('/var/lib/jenkins/workspace/TCS-Lyods pipeline/Frontend/my-app/'){
-                sh 'docker stop tcs-llyods-frontend:ui1 || exit 0'
-                sh 'docker kill tcs-llyods-frontend:ui1 || exit 0'
-                sh 'docker rm tcs-llyods-frontend:ui1 || exit 0'
-                sh 'docker rmi tcs-llyods-frontend:ui1 || exit 0'
-                sh 'docker build . -t tcs-llyods-frontend:ui1'
-                sh 'docker run --name tcs-llyods-frontend:ui1 -p 8081:8081 -d tcs-llyods-frontend:ui1'
+                sh 'docker stop tcs-llyods-frontend-ui1 || exit 0'
+                sh 'docker kill tcs-llyods-frontend-ui1 || exit 0'
+                sh 'docker rm tcs-llyods-frontend-ui1 || exit 0'
+                sh 'docker rmi tcs-llyods-frontend-ui1 || exit 0'
+                sh 'docker build . -t tcs-llyods-frontend-ui1'
+                sh 'docker run --name tcs-llyods-frontend-ui1 -p 8081:8081 -d tcs-llyods-frontend-ui1'
                 }
             }
 
