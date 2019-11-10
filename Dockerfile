@@ -11,7 +11,10 @@ RUN ls
 RUN mkdir /app;
 WORKDIR /app
 
-RUN cd Frontend
+RUN ls
+
+RUN cd Frontend/my-app
+RUN ls
 RUN npm install
 COPY build/. /
 RUN npm install -g serve@5.2.4
