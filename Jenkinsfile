@@ -48,7 +48,7 @@ pipeline {
 
         stage('Deploy to k8s'){
             steps{
-                sh 'scp -o StrictHostKeyChecking=no services.yml pod.yml'
+                sh 'scp -o StrictHostKeyChecking=no services.yml pods.yml'
                     script{
                         try{
                             sh "kubectl apply -f ."
