@@ -1,9 +1,7 @@
 pipeline {
     agent any
     
-    environment{
-        DOCKER_TAG = getDockerTag()
-    }
+    
     stages{
     stage('Get code from hithub'){
         steps{
@@ -12,9 +10,13 @@ pipeline {
     }
         stage('Build Docker Image For front end'){
             steps{
-                dir('/Frontend/my-app'){
-                sh "docker build . -t tcs-llyods/frontend:${DOCKER_TAG}"
-                sh "docker run --name tcs-llyods/frontend:${DOCKER_TAG} -p 8081:8081 -d s-llyods/frontend:${DOCKER_TAG} "
+                dir('/var/lib/jenkins/workspace/TCS-Lyods pipeline/Frontend/my-app/'){
+                sh 'docker stop tcs-llyods-frontend-ui1 || exit 0'
+                sh 'docker kill tcs-llyods-frontend-ui1 || exit 0'
+                sh 'docker rm tcs-llyods-frontend-ui1 || exit 0'
+                sh 'docker rmi tcs-llyods-frontend-ui1 || exit 0'
+                sh 'docker build . -t tcs-llyods-frontend-ui1'
+                sh 'docker run --name tcs-llyods-frontend-ui1 -p 8081:8081 -d tcs-llyods-frontend-ui1'
                 }
             }
 
@@ -23,9 +25,6 @@ pipeline {
     }
 
 
-def getDockerTag(){
-    def tag  = sh script: 'git rev-parse HEAD', returnStdout: true
-    return tag
-}
+
 
 
