@@ -1,11 +1,14 @@
 FROM java:8-jdk-alpine
 FROM maven:3
 
-RUN mvn clean install
-RUN ls
-COPY ./target/devops-backend-0.0.1-SNAPSHOT.jar /usr/app/
+RUN mkdir /service;
+WORKDIR /service
+COPY . /service
 
-WORKDIR /usr/app
+RUN mvn clean install
+COPY ./target/devops-backend-0.0.1-SNAPSHOT.jar /usr/service/
+
+WORKDIR /usr/service
 
 RUN sh -c 'touch devops-backend-0.0.1-SNAPSHOT.jar'
 
