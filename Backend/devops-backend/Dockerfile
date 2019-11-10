@@ -1,22 +1,12 @@
-FROM node:9.6.1
-ENV NPM_CONFIG_LOGLEVEL warn
+FROM java:8-jdk-alpine
 FROM maven:3
-RUN apt-get update && apt-get install -y curl
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-RUN apt-get update && apt-get install -y nodejs
-RUN npm --version
-RUN pwd
 
-RUN mkdir /app;
-WORKDIR /app
-COPY . /app
-
+RUN mvn clean install
 RUN ls
+COPY ./target/devops-backend-0.0.1-SNAPSHOT.jar /usr/app/
 
-RUN npm install
-RUN npm run-script build
-#COPY build/. /
-RUN npm install -g serve@5.2.4
+WORKDIR /usr/app
 
-CMD serve -s -p8081
-EXPOSE 8081
+RUN sh -c 'touch devops-backend-0.0.1-SNAPSHOT.jar'
+
+ENTRYPOINT ["java","-jar","devops-backend-0.0.1-SNAPSHOT.jar"]
