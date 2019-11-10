@@ -11,7 +11,7 @@ spec:
     targetPort: 8081
   type: LoadBalancer   
   ---
-  kind: Service
+kind: Service
 apiVersion: v1
 metadata:
   name: tcs-llyods-backend-s1 
