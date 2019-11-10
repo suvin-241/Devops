@@ -46,10 +46,18 @@ pipeline {
             }
         }
 
-        // stage('Deploy to k8s'){
-        //     steps{
-        //     }
-        // }
+        stage('Deploy to k8s'){
+            steps{
+                sh 'scp -o StrictHostKeyChecking=no services.yml pod.yml'
+                    script{
+                        try{
+                            sh "kubectl apply -f ."
+                        }catch(error){
+                            sh "kubectl create -f ."
+                        }
+                    }
+            }
+        }
         }
     }
 
