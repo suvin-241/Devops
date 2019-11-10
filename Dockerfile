@@ -7,3 +7,4 @@ WORKDIR /app
 
 COPY . /app
 RUN cd Frontend
+RUN npm install
