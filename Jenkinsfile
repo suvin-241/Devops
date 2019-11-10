@@ -17,6 +17,7 @@ pipeline {
                 sh "docker run --name tcs-llyods/frontend:${DOCKER_TAG} -p 8081:8081 -d s-llyods/frontend:${DOCKER_TAG} "
                 }
             }
+
             }
         }
     }
