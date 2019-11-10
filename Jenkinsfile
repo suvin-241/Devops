@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    stage('Get code from hithub'){
+    stages('Get code from hithub'){
         steps{
             echo('welcome')
         }
