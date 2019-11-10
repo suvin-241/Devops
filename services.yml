@@ -8,5 +8,20 @@ spec:
   ports:
   - protocol: TCP
     port: 80
+    targetPort: 8081
+  type: LoadBalancer   
+  ---
+  kind: Service
+apiVersion: v1
+metadata:
+  name: tcs-llyods-backend-s1 
+spec:
+  selector:
+    app: tcs-llyods-backend-s1 
+  ports:
+  - protocol: TCP
+    port: 80
     targetPort: 8082
   type: LoadBalancer   
+
+
