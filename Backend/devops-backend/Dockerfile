@@ -6,7 +6,7 @@ WORKDIR /service
 COPY . /service
 
 RUN mvn clean install
-COPY ./target/devops-backend-0.0.1-SNAPSHOT.jar /usr/service/
+#COPY ./target/devops-backend-0.0.1-SNAPSHOT.jar /usr/service/
 
 WORKDIR /usr/service
 
