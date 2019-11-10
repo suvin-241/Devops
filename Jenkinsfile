@@ -16,7 +16,7 @@ pipeline {
                 sh 'docker rm tcs-llyods-frontend-ui1 || exit 0'
                 sh 'docker rmi tcs-llyods-frontend-ui1 || exit 0'
                 sh 'docker build . -t tcs-llyods-frontend-ui1'
-                sh 'docker run --name tcs-llyods-frontend-ui1 -p 8081:8081 -d tcs-llyods-frontend-ui1'
+               //sh 'docker run --name tcs-llyods-frontend-ui1 -p 8081:8081 -d tcs-llyods-frontend-ui1'
                 }
             }
 
@@ -30,10 +30,26 @@ pipeline {
                 sh 'docker rm tcs-llyods-backend-s1 || exit 0'
                 sh 'docker rmi tcs-llyods-backend-s1 || exit 0'
                 sh 'docker build . -t tcs-llyods-backend-s1'
-                sh 'docker run --name tcs-llyods-backend-s1 -p 8081:8081 -d tcs-llyods-backend-s1'
+               //sh 'docker run --name tcs-llyods-backend-s1 -p 8082:8082 -d tcs-llyods-backend-s1'
                 }
             }
             }
+
+            stage('DockerHub Push'){
+            steps{
+                withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
+                    sh "docker login -u suvin241 -p ${dockerHubPwd}"
+                    sh 'docker push tcs-llyods-frontend-ui1'
+                    sh 'docker push tcs-llyods-backend-s1'
+
+                }
+            }
+        }
+
+        stage('Deploy to k8s'){
+            steps{
+            }
+        }
         }
     }
 
