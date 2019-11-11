@@ -1,4 +1,4 @@
-package com.tcs.devops;
+package com.suvin.devops;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
