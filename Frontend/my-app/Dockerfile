@@ -16,6 +16,7 @@ RUN npm install
 RUN npm run-script build
 RUN ls
 RUN cd build
+RUN ls
 COPY build/. /
 RUN npm install -g serve@5.2.4
 
