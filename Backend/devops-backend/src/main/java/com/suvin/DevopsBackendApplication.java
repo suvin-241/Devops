@@ -1,4 +1,4 @@
-package com.suvin.devops;
+package com.suvin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DevopsBackendApplication {
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(DevopsBackendApplication.class, args);
+		
+		
 	}
 
 }
