@@ -5,7 +5,7 @@ RUN mkdir /service;
 WORKDIR /service
 COPY . /service
 
-RUN mvn clean install
+RUN mvn clean install -DskipTests=true
 #COPY ./target/devops-backend-0.0.1-SNAPSHOT.jar /usr/service/
 
 WORKDIR /usr/service
