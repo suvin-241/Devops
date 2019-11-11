@@ -11,11 +11,11 @@ pipeline {
         stage('Build Docker Image For front end'){
             steps{
                 dir('/var/lib/jenkins/workspace/TCS-Lyods pipeline/Frontend/my-app/'){
-                sh 'sudo docker stop suvin241/frontend-ui1 || exit 0'
-                sh 'sudo docker kill suvin241/frontend-ui1 || exit 0'
-                sh 'sudo docker rm suvin241/frontend-ui1 || exit 0'
-                sh 'sudo docker rmi suvin241/frontend-ui1 || exit 0'
-                sh 'sudo docker build . -t suvin241/frontend-ui1'
+                sh 'docker stop suvin241/frontend-ui1 || exit 0'
+                sh 'docker kill suvin241/frontend-ui1 || exit 0'
+                sh 'docker rm suvin241/frontend-ui1 || exit 0'
+                sh 'docker rmi suvin241/frontend-ui1 || exit 0'
+                sh 'docker build . -t suvin241/frontend-ui1'
                //sh 'docker run --name frontend-ui1 -p 8081:8081 -d frontend-ui1'
                 }
             }
