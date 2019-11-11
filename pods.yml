@@ -1,26 +1,26 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: tcs-llyods-frontend-ui1 
+  name: frontend-ui1 
   labels:
-    app: tcs-llyods-frontend-ui1 
+    app: frontend-ui1 
 spec:
   containers:
-    - name: tcs-llyods-frontend-ui1 
-      image: suvin241/tcs-llyods-frontend-ui1:latest
+    - name: frontend-ui1 
+      image: suvin241/frontend-ui1:latest
       ports:
         - containerPort: 8081
         
 apiVersion: v1
 kind: Pod
 metadata:
-  name: tcs-llyods-backend-s1 
+  name: backend-s1 
   labels:
-    app: tcs-llyods-backend-s1 
+    app: backend-s1 
 spec:
   containers:
-    - name: tcs-llyods-backend-s1 
-      image: suvin241/tcs-llyods-backend-s1:latest
+    - name: backend-s1 
+      image: suvin241/backend-s1:latest
       ports:
         - containerPort: 8082
 

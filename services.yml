@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: tcs-llyods-frontend-ui1 
+  name: frontend-ui1 
 spec:
   selector:
-    app: tcs-llyods-frontend-ui1 
+    app: frontend-ui1 
   ports:
   - protocol: TCP
     port: 80
@@ -14,10 +14,10 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: tcs-llyods-backend-s1 
+  name: backend-s1 
 spec:
   selector:
-    app: tcs-llyods-backend-s1 
+    app: backend-s1 
   ports:
   - protocol: TCP
     port: 80
