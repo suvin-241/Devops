@@ -8,6 +8,7 @@ pipeline {
             echo('welcome')
         }
     }
+        
         stage('Build Docker Image For front end'){
             steps{
                 dir('/var/lib/jenkins/workspace/TCS-Lyods pipeline/Frontend/my-app/'){
@@ -21,6 +22,7 @@ pipeline {
             }
 
             }
+        
 
             stage('Build Docker Image For back end'){
             steps{
