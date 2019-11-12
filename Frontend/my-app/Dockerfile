@@ -18,16 +18,9 @@ RUN npm run-script build
 #RUN ls
 #COPY build/. /
 #RUN npm install -g serve@5.2.4
-<<<<<<< HEAD
-=======
 
 #CMD serve -s -p8081
 CMD npm start
 EXPOSE 8081
 #CMD [ "npm", "start" ]
->>>>>>> cc43c78dae5412a3af326d8054960a0d12dc785d
 
-#CMD serve -s -p8081
-CMD npm start
-EXPOSE 8081
-#CMD [ "npm", "start" ]
