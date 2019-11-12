@@ -1,5 +1,5 @@
-FROM java:8-jdk-alpine
-FROM maven:3
+
+FROM maven:3 as builder
 
 RUN mkdir /service;
 WORKDIR /service
@@ -11,10 +11,15 @@ RUN ls
 
 WORKDIR /service
 
+RUN pwd
+
 RUN ls
+
+FROM java:8-jdk-alpine
+
+COPY --from=builder /service/target/devops-backend-0.0.1-SNAPSHOT.jar .
 
 #RUN sh -c 'touch devops-backend-0.0.1-SNAPSHOT.jar'
 
 #ENTRYPOINT ["java","-jar","devops-backend-0.0.1-SNAPSHOT.jar"]
-CMD java -jar ./target/devops-backend-0.0.1-SNAPSHOT.jar
-EXPOSE 8082:8082
+CMD java -jar devops-backend-0.0.1-SNAPSHOT.jar
