@@ -1,3 +1,9 @@
 docker build . -t suvinui
 
 docker run --name suvinui -p 8081:3000 -d suvinui
+
+
+docker build . -t suvinsr
+
+docker run --name suvinsr -p 8082:8082 -d suvinsr
+
