@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontend-ui2 
+  labels:
+    app: frontend-ui2
+spec:
+  containers:
+    - name: frontend-ui2
+      image: suvin241/frontend-ui2:latest
+      ports:
+        - containerPort: 8081
+
+

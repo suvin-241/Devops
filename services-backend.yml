@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: backend-s2
+spec:
+  selector:
+    app: backend-s2
+  ports:
+  - protocol: TCP
+    port: 8082
+    targetPort: 8082
+  type: LoadBalancer   
+
+
