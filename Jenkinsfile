@@ -54,8 +54,8 @@ pipeline {
                 sh 'scp -o StrictHostKeyChecking=no services-backend.yml services-frontend.yml pods-backend.yml pods-frontend.yml ubuntu@172.31.11.224:/home/ubuntu'
                     script{
                         try{
-                            sh "ssh ubuntu@172.31.11.224 kubectl apply -f services-frontend.yml pods-frontend.yml"
-                            sh "ssh ubuntu@172.31.11.224 kubectl apply -f ."
+                            sh "ssh ubuntu@172.31.11.224 kubectl apply services-frontend.yml pods-frontend.yml"
+                            sh "ssh ubuntu@172.31.11.224 kubectl apply services-backend.yml pods-backend.yml"
 
                         }catch(error){
                             sh "ssh ubuntu@172.31.11.224 kubectl create -f services-frontend.yml pods-frontend.yml"
