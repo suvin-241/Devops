@@ -9,6 +9,6 @@ spec:
     - name: frontend-ui2
       image: suvin241/frontend-ui2:latest
       ports:
-        - containerPort: 8081
+        - containerPort: 3000
 
 

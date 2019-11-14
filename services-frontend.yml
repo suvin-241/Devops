@@ -7,7 +7,7 @@ spec:
     app: frontend-ui2 
   ports:
   - protocol: TCP
-    port: 8081
+    port: 3000
     targetPort: 8081
   type: LoadBalancer    
 
