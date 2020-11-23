@@ -19,6 +19,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public List<Customer> getCustomers() {
 		
+		System.out.println("suvin");
 		return customerDao.getCustomers();
 	}
 
